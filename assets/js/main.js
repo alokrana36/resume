@@ -1,12 +1,25 @@
 /*===== MENU SHOW =====*/ 
-const showMenu = (toggleId, navId) =>{
+
+const express = require('express');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+
+app.post('/submit-form', (req, res) => {
+  const formData = JSON.stringify(req.body, null, 2);
+
+  fs.writeFile('formData.json', formData, (err) => {
+    if (err) throw err;
+    console.log('Form data saved successfully!');
+    res.send('Form data saved successfully!');
+  });
+});const app = express();const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
 
     if(toggle && nav){
         toggle.addEventListener('click', ()=>{
             nav.classList.toggle('show')
-        })
+        }) 
     }
 }
 showMenu('nav-toggle','nav-menu')
@@ -54,3 +67,5 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+
+
