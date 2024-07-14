@@ -231,11 +231,11 @@ img {
 }
 
 .home__blob {
-  fill: hsl(216.69deg 19.25% 46.75%);
+  fill: hsl(0deg 0% 100%);
 }
 
 .home__blob-img {
-  width: 398px;
+  width: 521px;
 }
 
 /*BUTTONS*/
